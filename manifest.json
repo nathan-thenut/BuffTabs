@@ -1,0 +1,18 @@
+{
+    "name": "BuffTabs",
+    "description": "Pess Ctrl+Shift+B to open a list of tabs.",
+    "homepage_url": "https://github.com/nathan-thenut/BuffTabs",
+    "manifest_version": 2,
+    "version": "0.1",
+    "background": {
+        "scripts": ["bufftabs.js"]
+    },
+
+    "commands": {
+        "toggle-list": {
+        "suggested_key": { "default": "Ctrl+Shift+B" },
+        "description": "Send a 'toggle-list' event to the extension"
+        }
+    }
+}
+
