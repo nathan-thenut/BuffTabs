@@ -7,8 +7,8 @@ Useful links for Developing:
 - https://github.com/mdn/webextensions-examples
 
 TODO:
-- make a list of tabs in the bufferlist page
-- add command for closing bufferlist (toggle?)
+- ~~make a list of tabs in the bufferlist page~~
+- ~~add command for closing bufferlist (toggle?)-~~
 - add command input field
 - add command for deleting/opening buffers/tabs
 - add command for creating tabs
