@@ -5,12 +5,6 @@ function openBuffList() {
     });
 }
 
-function getCurrentWindowTabs() {
-    return browser.tabs.query({currentWindow: true});
-}
-
-
-
 function logTabs(tabs) {
     console.log(tabs);
     for (let tab of tabs) {
@@ -20,12 +14,6 @@ function logTabs(tabs) {
 
 function onError(error) {
     console.log("Error: ", error);
-}
-
-function fillTabList() {
-    getCurrentWindowTabs().then((tabs) => {
-        
-    });    
 }
 
 browser.commands.onCommand.addListener((command) => {
