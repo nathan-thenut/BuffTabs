@@ -13,6 +13,10 @@
         "suggested_key": { "default": "Ctrl+Shift+B" },
         "description": "Send a 'toggle-list' event to the extension"
         }
-    }
+    },
+    
+    "permissions": [
+        "tabs"
+    ]
 }
 
