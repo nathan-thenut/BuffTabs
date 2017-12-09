@@ -23,7 +23,6 @@ browser.commands.onCommand.addListener((command) => {
     querying.then((tabs) => {
         if (tabs.length == 0) {
             openBuffList();
-        
         } else {
             var active = false;
             var tabid;

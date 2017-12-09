@@ -54,15 +54,21 @@ function setKeybindings () {
             }
         }
 
-        if (e.ctrlKey) {
-            switch (e.keyCode) {
-            case 37:
-                // Pressing left key
-                break;
-            case 39:
-                // Pressing right key
-                break;
+        // Get the current position in pagination
+		    var no = parseInt(window.location.hash.slice(-1));
+        if (isNaN(no)) no = 0;
+
+        switch (e.keyCode) {
+        case 37:
+            if (no - 1 >= 0) {
+                location.hash = "#p" + (no - 1);
             }
+            break;
+        case 39:
+            if (no > -1) {
+                location.hash = "#p" + (no + 1);
+            }
+            break;
         }
 
     });

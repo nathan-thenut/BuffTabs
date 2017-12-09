@@ -1,20 +1,25 @@
 html, body {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px 15%;
-    background: #3C8282;
-    font-family: Quicksand, Roboto;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 50vw;
+    background: #fff;
+    font-family: OpenSans, Quicksand, Roboto;
 }
 
 h1 {
-    color: #fff;
     font-weight: normal;
 }
 
 a {
     display: inline-block;
-    margin: 10px;
-    color: #fff;
+    color: inherit;
     text-decoration: none;
 }
 
@@ -22,7 +27,8 @@ input {
     display: block;
     width: calc(100% - 2em);
     margin: 1em 0px;
-    padding: 0.8em;
+    padding: 1em;
+    border: 1px solid #aaa;
 }
 
 ul {
@@ -33,12 +39,18 @@ ul {
 }
 
 ul > li {
-    position: relative;
-    padding-left: 2.5em;
-    border-bottom: 1px solid #fff;
+    margin: 0px;
+    padding: 0px;
 }
 
-ul > li:before {
+ul > li > a {
+    position: relative;
+    display: block;
+    padding: 0.8em 2.8em;
+    border-bottom: 1px solid #888;
+}
+
+ul > li > a:before {
     counter-increment: line;
     content: counter(line);
     position: absolute;
@@ -49,10 +61,14 @@ ul > li:before {
     width: 1.5em;
     margin-right: 0.5em;
     padding: 0.2em 0.3em;
-    background: rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.5);
     color: #fff;
     font-family: Courier;
     text-align: center;
+}
+
+ul > li > a:hover {
+    background: rgba(0,0,0,0.3);
 }
 
 .tabs-list a {  
@@ -61,4 +77,12 @@ ul > li:before {
 
 .panel {  
     margin: 5px;
+}
+
+#tabsInfo {
+    position: absolute;
+    top: 1.2em;
+    right: 0px;
+    padding: 0.5em;
+    border: 1px solid #aaa;
 }
