@@ -8,6 +8,7 @@ function emptyElement (id) {
 
 function resetTabList() {
     document.getElementById("searchInput").value = "";
+    location.hash = "#p0";
     fillTabList("");
 }
 
@@ -50,7 +51,7 @@ function fillTabList(search) {
 
     }
 
-    getTabs().then((tabs) => {
+    getCurrentWindowTabs().then((tabs) => {
         let tabsList = document.getElementById('list');
         let currentTabs = document.createDocumentFragment();
 
@@ -103,8 +104,8 @@ function fillTabList(search) {
     });
 }
 
-function getTabs() {
-    return browser.tabs.query({});
+function getCurrentWindowTabs() {
+    return browser.tabs.query({currentWindow: true});
 }
 
 document.addEventListener("DOMContentLoaded", function () {
