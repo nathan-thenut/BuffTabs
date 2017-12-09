@@ -9,7 +9,7 @@ Useful links for Developing:
 TODO:
 - ~~make a list of tabs in the bufferlist page~~
 - ~~add command for closing bufferlist (toggle?)-~~
-- add commands for deleting
-- add command for opening buffers/tabs
+- add commands for deleting tabs
+- ~~add command for opening buffers/tabs~~
 - add command for creating tabs
 - ~~add search command~~
