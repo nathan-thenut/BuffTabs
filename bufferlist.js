@@ -6,6 +6,11 @@ function emptyElement (id) {
     }
 }
 
+function resetTabList() {
+    document.getElementById("searchInput").value = "";
+    fillTabList("");
+}
+
 function fillTabList(search) {
 
     /* Function for opening element X */
@@ -16,6 +21,9 @@ function fillTabList(search) {
         browser.tabs.update(tabid, {
             active: true
         });
+
+        resetTabList();
+
     }
 
     getCurrentWindowTabs().then((tabs) => {
