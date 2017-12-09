@@ -7,6 +7,17 @@ function emptyElement (id) {
 }
 
 function fillTabList(search) {
+
+    /* Function for opening element X */
+    function replaceWindowByHref (element) {
+
+        var tabid = +element.getAttribute("href");
+        console.log("Switching to tab with id: " + tabid);
+        browser.tabs.update(tabid, {
+            active: true
+        });
+    }
+
     getCurrentWindowTabs().then((tabs) => {
         let tabsList = document.getElementById('list');
         let currentTabs = document.createDocumentFragment();
@@ -27,8 +38,13 @@ function fillTabList(search) {
             let item = document.createElement('li');
             let tabLink = document.createElement('a');
             tabLink.textContent = tab.title || tab.id;
-            console.log("Saving Tab ID: " + tab.id);
             tabLink.setAttribute('href', tab.id);
+            tabLink.addEventListener("click", function (e){
+                e.preventDefault();
+                replaceWindowByHref (tabLink);
+            });
+
+            console.log("Saving Tab ID: " + tab.id);
             //tabLink.classList.add('switch-tabs');
             item.appendChild(tabLink);
             currentTabs.appendChild(item);
