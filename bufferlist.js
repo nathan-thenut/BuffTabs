@@ -26,7 +26,7 @@ function fillTabList(search) {
 
     }
 
-    getCurrentWindowTabs().then((tabs) => {
+    getTabs().then((tabs) => {
         let tabsList = document.getElementById('list');
         let currentTabs = document.createDocumentFragment();
 
@@ -62,8 +62,8 @@ function fillTabList(search) {
     });
 }
 
-function getCurrentWindowTabs() {
-    return browser.tabs.query({currentWindow: true});
+function getTabs() {
+    return browser.tabs.query({});
 }
 
 document.addEventListener("DOMContentLoaded", function () {
