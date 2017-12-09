@@ -1,14 +1,51 @@
-html, body {  
+html, body {
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
-    background: #F0F8FF;
+    padding: 0px 15%;
+    background: #3C8282;
+    font-family: Quicksand, Roboto;
 }
 
+h1 {
+    color: #fff;
+    font-weight: normal;
+}
 
 a {
-    margin: 10px;
     display: inline-block;
+    margin: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.05em;
+    counter-reset: line;
+}
+
+ul > li {
+    position: relative;
+    padding-left: 2.5em;
+    border-bottom: 1px solid #fff;
+}
+
+ul > li:before {
+    counter-increment: line;
+    content: counter(line);
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0, -50%);
+    display: inline-block;
+    width: 1.5em;
+    margin-right: 0.5em;
+    padding: 0.2em 0.3em;
+    background: rgba(255,255,255,0.5);
+    color: #fff;
+    font-family: Courier;
+    text-align: center;
 }
 
 .tabs-list a {  
