@@ -18,6 +18,13 @@ a {
     text-decoration: none;
 }
 
+input {
+    display: block;
+    width: calc(100% - 2em);
+    margin: 1em 0px;
+    padding: 0.8em;
+}
+
 ul {
     margin: 0px;
     padding: 0px;
