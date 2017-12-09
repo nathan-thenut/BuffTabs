@@ -18,7 +18,10 @@ function onError(error) {
 
 browser.commands.onCommand.addListener((command) => {
     console.log("Received Command: ", command);
-    var querying = browser.tabs.query({url: browser.extension.getURL("*")});
+    var querying = browser.tabs.query({
+        url: browser.extension.getURL("*"),
+        currentWindow: true
+    });
     querying.then(logTabs, onError);
     querying.then((tabs) => {
         if (tabs.length == 0) {
