@@ -1,6 +1,12 @@
 function openBuffList() {  
+
     console.log("opening Buffer List");
-    browser.tabs.create({ 
+
+    // Set icon to active one
+    browser.browserAction.setIcon({path: "icons/BuffTabs-active.svg"});
+
+    // Create tab for BuffTabs
+    browser.tabs.create({
         "url": "bufferlist.html"
     });
 }
@@ -16,8 +22,7 @@ function onError(error) {
     console.log("Error: ", error);
 }
 
-browser.commands.onCommand.addListener((command) => {
-    console.log("Received Command: ", command);
+function runBuffTabs () {
     var querying = browser.tabs.query({
         url: browser.extension.getURL("*"),
         currentWindow: true
@@ -33,6 +38,7 @@ browser.commands.onCommand.addListener((command) => {
             for (let tab of tabs) {
                 if(tab.active) {
                     console.log("Removing tab with tablist");
+                    browser.browserAction.setIcon({path: "icons/BuffTabs.svg"});
                     browser.tabs.remove(tab.id);
                     active = true;
                     break;
@@ -48,4 +54,10 @@ browser.commands.onCommand.addListener((command) => {
             }
         }
     });
+}
+
+browser.commands.onCommand.addListener((command) => {
+    console.log("Received Command: ", command);
+    runBuffTabs();
 });
+browser.browserAction.onClicked.addListener(runBuffTabs);

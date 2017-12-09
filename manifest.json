@@ -10,11 +10,15 @@
 
     "commands": {
         "toggle-list": {
-        "suggested_key": { "default": "Ctrl+Shift+B" },
-        "description": "Send a 'toggle-list' event to the extension"
+            "suggested_key": { "default": "Ctrl+Shift+B" },
+            "description": "Send a 'toggle-list' event to the extension"
         }
     },
-    
+    "browser_action": {
+        "browser_style": true,
+        "default_icon": "icons/BuffTabs.svg"
+    },
+
     "permissions": [
         "tabs"
     ]
