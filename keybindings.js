@@ -69,6 +69,10 @@ function setKeybindings () {
                 location.hash = "#p" + (no + 1);
             }
             break;
+        case 112:
+            e.preventDefault();
+            document.getElementById("help").classList.toggle("visible");
+            break;
         }
 
     });

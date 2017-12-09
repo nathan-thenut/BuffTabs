@@ -4,18 +4,14 @@ html, body {
 }
 
 body {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    width: 50vw;
     background: #fff;
+    line-height: 1.5em;
     font-family: OpenSans, Quicksand, Roboto;
 }
 
-h1 {
-    font-weight: normal;
-}
+/* ----------
+|  General
+|- ---------*/
 
 a {
     display: inline-block;
@@ -24,18 +20,21 @@ a {
 }
 
 input {
-    display: block;
-    width: calc(100% - 2em);
     margin: 1em 0px;
     padding: 1em;
     border: 1px solid #aaa;
 }
 
+kbd {
+    margin: 0.2em;
+    padding: 0.2em;
+    background: #555;
+    border-radius: 3px;
+}
+
 ul {
     margin: 0px;
     padding: 0px;
-    font-size: 1.05em;
-    counter-reset: line;
 }
 
 ul > li {
@@ -43,14 +42,75 @@ ul > li {
     padding: 0px;
 }
 
-ul > li > a {
+ul > li > a:hover {
+    background: rgba(0,0,0,0.3);
+}
+
+.visible {
+    display: initial !important;
+}
+
+/* ----------
+|  Main Structure Elements
+|- ---------*/
+
+.panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 50vw;
+}
+
+#help {
+    animation: fade-in-help 0.6s;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 15em;
+    padding: 0.8em 2em;
+    text-align: justify;
+    background: rgba(0,0,0,0.95);
+    color: #fff;
+}
+
+/* ----------
+|  Elements specific to the panel
+|- ---------*/
+
+h1 {
+    font-weight: normal;
+}
+
+#tabsInfo {
+    position: absolute;
+    top: 1.2em;
+    right: 0px;
+    padding: 0.5em;
+    border: 1px solid #aaa;
+}
+
+
+.panel input {
+    display: block;
+    width: calc(100% - 2em);
+}
+
+.panel ul {
+    font-size: 1.05em;
+    counter-reset: line;
+}
+
+.panel ul > li > a {
     position: relative;
     display: block;
     padding: 0.8em 2.8em;
     border-bottom: 1px solid #888;
 }
 
-ul > li > a:before {
+.panel ul > li > a:before {
     counter-increment: line;
     content: counter(line);
     position: absolute;
@@ -67,22 +127,23 @@ ul > li > a:before {
     text-align: center;
 }
 
-ul > li > a:hover {
-    background: rgba(0,0,0,0.3);
-}
-
-.tabs-list a {  
+.tabs-list a {
     display: block;
 }
 
-.panel {  
-    margin: 5px;
+/* ----------
+|  Help
+|- ---------*/
+
+#help > h2 {
+    font-weight: normal;
 }
 
-#tabsInfo {
-    position: absolute;
-    top: 1.2em;
-    right: 0px;
-    padding: 0.5em;
-    border: 1px solid #aaa;
+/* ----------
+|  Animations
+|- ---------*/
+
+@keyframes fade-in-help {
+    from { opacity: 0.4; width: 0px; }
+    to   { opacity: 1.0; width: 15em; }
 }
