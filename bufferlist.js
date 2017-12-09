@@ -63,7 +63,7 @@ function fillTabList(search) {
         var perPage = 9;
         var offset  = getOffset(perPage);
 
-        addDescription (offset + 1, offset + perPage + 1, tabs.length - 1); // Substract 1 because the BuffTabs tab is not to be counted
+        addDescription (offset + 1, offset + perPage, tabs.length - 1); // Substract 1 because the BuffTabs tab is not to be counted
 
         for (let tab of tabs) {
 
