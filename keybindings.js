@@ -7,11 +7,13 @@ function setKeybindings () {
     /* Function for opening element X */
     function replaceWindowOfChild (element, number) {
 
-        var link = element.children[number];
-
-        console.log(link);
+        var link = element.children[number].children[0];
+        var tabid = +link.getAttribute("href");
+        console.log("Switching to tab with id: " + tabid + " from " + link);
         if (link != null) {
-            window.location.href = link.href;
+            browser.tabs.update(tabid, {
+                active: true
+            });
         }
     }
 

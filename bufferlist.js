@@ -27,6 +27,7 @@ function fillTabList(search) {
             let item = document.createElement('li');
             let tabLink = document.createElement('a');
             tabLink.textContent = tab.title || tab.id;
+            console.log("Saving Tab ID: " + tab.id);
             tabLink.setAttribute('href', tab.id);
             //tabLink.classList.add('switch-tabs');
             item.appendChild(tabLink);
