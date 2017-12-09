@@ -56,10 +56,20 @@ ul > li > a:hover {
 
 .panel {
     position: absolute;
-    top: 50%;
+    width: 90vw;
+    top: 2em;
     left: 50%;
-    transform: translate(-50%, -60%);
-    width: 50vw;
+    transform: translate(-50%, 0);
+}
+
+@media (min-width: 51em) {
+    .panel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 50vw;
+    }
 }
 
 #help {
