@@ -24,9 +24,7 @@ function setKeybindings () {
         if (link != null) {
             var tabid = +link.getAttribute("href");
             console.log("Removing tab with id: " + tabid + " from " + link);
-            browser.tabs.remove(tabid, {
-                active: true
-            });
+            browser.tabs.remove(tabid);
             return true;
         }
         return false;
