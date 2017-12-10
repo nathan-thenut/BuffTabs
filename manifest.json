@@ -19,7 +19,7 @@
         "default_icon": "icons/BuffTabs.svg"
     },
     "options_ui": {
-        "page": "bufferlist.html"
+        "page": "options.html"
     },
     "permissions": [
         "tabs",
