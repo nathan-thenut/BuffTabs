@@ -23,8 +23,6 @@ function fillTabList(search) {
             active: true
         });
 
-        resetTabList();
-
     }
 
     // Get the current position in pagination
@@ -134,6 +132,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Change the icon back to inactive when closing the BuffTab
     window.addEventListener("beforeunload", function (event) {
         browser.browserAction.setIcon({path: "icons/BuffTabs.svg"});
+    });
+
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState == "visible") {
+            resetTabList();
+            document.getElementById("searchInput");
+        }
     });
 
 });
