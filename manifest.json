@@ -1,6 +1,6 @@
 {
     "name": "BuffTabs",
-    "description": "Pess Ctrl+Shift+B to open a list of tabs.",
+    "description": "Press Ctrl+Shift+B to open a list of tabs.",
     "homepage_url": "https://github.com/nathan-thenut/BuffTabs",
     "manifest_version": 2,
     "version": "0.1",
@@ -18,7 +18,9 @@
         "browser_style": true,
         "default_icon": "icons/BuffTabs.svg"
     },
-
+    "options_ui": {
+        "page": "bufferlist.html"
+    },
     "permissions": [
         "tabs",
         "storage"

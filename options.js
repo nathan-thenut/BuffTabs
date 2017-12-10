@@ -22,7 +22,22 @@ function saveOptions(e) {
     });
 }
 
+function addOptionsToBody () {
+    let item = document.createElement('form');
+    item.id = "settings";
+    item.classList = "sidebar";
+    item.innerHTML = `
+        <h2>Options</h2>
+        <input id="pinned" type="checkbox" name="pinned" value="true">
+        <label for="pinned">Open BuffTab as a pinned tab</label>
+        <button type="submit">Save</button>
+        `;
+
+    document.getElementsByTagName("body")[0].appendChild(item);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+    addOptionsToBody();
     restoreOptions();
     document.getElementById("settings").addEventListener("submit", saveOptions);
 });
