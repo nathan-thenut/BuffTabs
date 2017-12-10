@@ -120,4 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
         fillTabList(document.getElementById("searchInput").value);
     });
 
+    // Change the icon back to inactive when closing the BuffTab
+    window.addEventListener("beforeunload", function (event) {
+        browser.browserAction.setIcon({path: "icons/BuffTabs.svg"});
+    });
+
 });
