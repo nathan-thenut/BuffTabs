@@ -67,7 +67,7 @@ function fillTabList(search) {
 
         for (let tab of tabs) {
 
-            if (counter < offset) {
+            if (counter < offset || counter == offset && offset != 0) {
                 counter++;
                 continue;
             }
@@ -96,7 +96,8 @@ function fillTabList(search) {
             currentTabs.appendChild(item);
 
             counter++;
-            if (counter >= perPage + offset - 0) break;
+            if (offset == 0 && counter >= perPage + offset) break;
+            else if (offset != 0 && counter >= perPage + offset +1 ) break;
 
         }
 
