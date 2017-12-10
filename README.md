@@ -15,7 +15,7 @@ You can also press <kbd>F1</kbd> to open a help text.
 
 ### Settings
 
-Options can be set using a dialogue that opens on pressing <kbd>f3</kbd>. The following options can be set:
+Options can be set through the regular way using `about:addons`. Alternatively you can press <kbd>f3</kbd> to access the options within the Bufftabs tab. The following options can be set:
 
 - Enable or disable the tab opening as a pinned tab.
 
