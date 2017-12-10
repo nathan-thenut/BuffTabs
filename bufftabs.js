@@ -1,14 +1,28 @@
-function openBuffList() {  
+function openBuffList() {
 
     console.log("opening Buffer List");
 
     // Set icon to active one
     browser.browserAction.setIcon({path: "icons/BuffTabs-active.svg"});
 
+    var pinnedGetting = browser.storage.local.get("pinned");
+    pinnedGetting.then(function (item) {
+        var pinned = false;
+        if (item.pinned) {
+            pinned = item.pinned;
+        }
+        browser.tabs.create({
+            "pinned": pinned,
+            "url": "bufferlist.html"
+        });
+    }
+                       , function (e) {
+                           browser.tabs.create({
+                               "url": "bufferlist.html"
+                           });
+                       });
+
     // Create tab for BuffTabs
-    browser.tabs.create({
-        "url": "bufferlist.html"
-    });
 }
 
 function logTabs(tabs) {

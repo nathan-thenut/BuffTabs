@@ -26,9 +26,10 @@
             </div>
             <script src="keybindings.js"></script>
             <script src="bufferlist.js"></script>
+            <script src="options.js"></script>
         </div>
 
-        <div id="help">
+        <div id="help" class="sidebar">
             <h2>Keybindings</h2>
             <p>
                 Press the cursor keys (<kbd>Left</kbd> / <kbd>Right</kbd>) to navigate the pages.
@@ -40,6 +41,13 @@
                 Finally, you can press <kbd>F1</kbd> to show this help.
             </p>
         </div>
+
+        <form id="settings" class="sidebar">
+            <h2>Options</h2>
+            <input id="pinned" type="checkbox" name="pinned" value="true">
+            <label for="pinned">Open BuffTab as a pinned tab</label>
+            <button type="submit">Save</button>
+        </form>
 
     </body>
 
