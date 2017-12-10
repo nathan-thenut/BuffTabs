@@ -4,7 +4,8 @@ function openBuffList() {
 
     // Set icon to active one
     browser.browserAction.setIcon({path: "icons/BuffTabs-active.svg"});
-
+    
+    // should we open it as a pinned tab?
     var pinnedGetting = browser.storage.local.get("pinned");
     pinnedGetting.then(function (item) {
         var pinned = false;
@@ -15,14 +16,12 @@ function openBuffList() {
             "pinned": pinned,
             "url": "bufferlist.html"
         });
-    }
-                       , function (e) {
-                           browser.tabs.create({
-                               "url": "bufferlist.html"
-                           });
-                       });
+    } , function (e) {
+            browser.tabs.create({
+                "url": "bufferlist.html"
+            });
+        });
 
-    // Create tab for BuffTabs
 }
 
 function logTabs(tabs) {
