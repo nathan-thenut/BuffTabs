@@ -72,18 +72,25 @@ ul > li > a:hover {
     }
 }
 
-#help {
+.sidebar {
     animation: fade-in-help 0.6s;
     display: none;
     position: fixed;
     top: 0px;
-    left: 0px;
     height: 100%;
     width: 15em;
     padding: 0.8em 2em;
     text-align: justify;
     background: rgba(0,0,0,0.95);
     color: #fff;
+}
+
+#help {
+    left: 0px;
+}
+
+#settings {
+    right: 0px;
 }
 
 /* ----------
@@ -142,11 +149,39 @@ h1 {
 }
 
 /* ----------
-|  Help
+|  Sidebars, right now:
+|  - Help
+|  - settings
 |- ---------*/
 
-#help > h2 {
+.sidebar > h2 {
     font-weight: normal;
+}
+
+.sidebar button {
+    display: block;
+    margin: 1.5em 0px;
+    padding: 0.6em 1em;
+    border: 1px solid #aaa;
+    background: rgba(0,0,0,0);
+    color: #aaa;
+}
+
+.sidebar input[type="checkbox"] {
+    display: inline-block;
+    margin: 0.2em 0.5em 0.2em 0px;
+    vertical-align: middle;
+}
+
+.sidebar input[type="checkbox"] ~ label {
+    display: inline-block;
+    width:   calc(100% - 5em);
+    vertical-align: middle;
+}
+
+.sidebar button:hover {
+    animation: invert 0.6s;
+    filter: invert(1);
 }
 
 /* ----------
@@ -156,4 +191,9 @@ h1 {
 @keyframes fade-in-help {
     from { opacity: 0.4; width: 0px; }
     to   { opacity: 1.0; width: 15em; }
+}
+
+@keyframes invert {
+    from { filter: invert(0); }
+    to   { filter: invert(1); }
 }

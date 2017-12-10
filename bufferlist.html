@@ -6,8 +6,10 @@
         <link rel="stylesheet" href="bufferlist.css"/>
         <title>BuffTabs</title>
 
+	      <link rel="shortcut icon" href="icons/BuffTabs.svg" />
+
         <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-        <meta http-equiv="Content-Security-Policy" content="font-src 'none'; object-src 'none'; child-src 'none'; base-uri 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="font-src 'none'; object-src 'none'; child-src 'none'; base-uri 'none'; script-src 'self'; style-src 'self'">
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -18,15 +20,15 @@
         <div class="panel">
             <h1>Bufferlist</h1>
             <div id="tabs-list">
-
                 <input id="searchInput" placeholder="Search" autofocus />
                 <ul id="list" type="none"></ul>
             </div>
             <script src="keybindings.js"></script>
             <script src="bufferlist.js"></script>
+            <script src="options.js"></script>
         </div>
 
-        <div id="help">
+        <div id="help" class="sidebar">
             <h2>Keybindings</h2>
             <p>
                 Press the cursor keys (<kbd>Left</kbd> / <kbd>Right</kbd>) to navigate the pages.
@@ -34,8 +36,8 @@
                 Pressing them while holding <kbd>CTRL</kbd> pressed, will remove the given tab (e.g. <kbd>CTRL</kbd> + <kbd>3</kbd>).
             </p>
             <p>
-                Pressing <kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> is used to open the BuffTabs tab if it is not opened yet or jump to it if it is and you are in another tab. If you use it while in the BuffTabs tab, the tab will close.
-                Finally, you can press <kbd>F1</kbd> to show this help.
+                Pressing <kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> is used to open the BuffTabs tab if it is not opened yet or jump to it if it is and you are in another tab. If you use it while in the BuffTabs tab, the tab will close. Depending on the status of the Bufftabs tab, the extension's icon will be red (tab is open) or grey (tab is closed).
+                Finally, you can press <kbd>F1</kbd> to show this help or press <kbd>F3</kbd> to view and change the settings (they can also be accessed the usual way using <code>about:addons</code>).
             </p>
         </div>
 

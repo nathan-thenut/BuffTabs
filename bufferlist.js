@@ -42,11 +42,11 @@ function fillTabList(search) {
         if (document.getElementById("tabsInfo") == null) {
             let item = document.createElement('div');
             item.id = "tabsInfo";
-            item.innerHTML = from.toString() + " - " + to.toString() + " / " + max.toString();
+            item.textContent = from.toString() + " - " + to.toString() + " / " + max.toString();
             document.getElementsByTagName("div")[0].appendChild(item);
         }
         else {
-            document.getElementById("tabsInfo").innerHTML = from.toString() + " - " + to.toString() + " / " + max.toString();
+            document.getElementById("tabsInfo").textContent = from.toString() + " - " + to.toString() + " / " + max.toString();
         }
 
     }
@@ -63,11 +63,11 @@ function fillTabList(search) {
         var perPage = 9;
         var offset  = getOffset(perPage);
 
-        addDescription (offset + 1, offset + perPage, tabs.length - 1); // Substract 1 because the BuffTabs tab is not to be counted
+        addDescription (offset + 1, Math.min(offset + perPage, tabs.length - 1), tabs.length - 1); // Substract 1 because the BuffTabs tab is not to be counted
 
         for (let tab of tabs) {
 
-            if (counter < offset) {
+            if (counter < offset || counter == offset && offset != 0) {
                 counter++;
                 continue;
             }
@@ -96,7 +96,8 @@ function fillTabList(search) {
             currentTabs.appendChild(item);
 
             counter++;
-            if (counter >= perPage + offset - 0) break;
+            if (offset == 0 && counter >= perPage + offset) break;
+            else if (offset != 0 && counter >= perPage + offset +1 ) break;
 
         }
 

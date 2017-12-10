@@ -71,6 +71,10 @@ function setKeybindings () {
             e.preventDefault();
             document.getElementById("help").classList.toggle("visible");
             break;
+        case 114:
+            e.preventDefault();
+            document.getElementById("settings").classList.toggle("visible");
+            break;
         }
 
     });
