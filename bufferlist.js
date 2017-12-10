@@ -42,11 +42,11 @@ function fillTabList(search) {
         if (document.getElementById("tabsInfo") == null) {
             let item = document.createElement('div');
             item.id = "tabsInfo";
-            item.innerHTML = from.toString() + " - " + to.toString() + " / " + max.toString();
+            item.textContent = from.toString() + " - " + to.toString() + " / " + max.toString();
             document.getElementsByTagName("div")[0].appendChild(item);
         }
         else {
-            document.getElementById("tabsInfo").innerHTML = from.toString() + " - " + to.toString() + " / " + max.toString();
+            document.getElementById("tabsInfo").textContent = from.toString() + " - " + to.toString() + " / " + max.toString();
         }
 
     }
