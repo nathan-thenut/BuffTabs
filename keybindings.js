@@ -40,14 +40,10 @@ function setKeybindings () {
                 // 49 equals 1 on the keyboard, 0 in the list of li elements.
                 // Hence, substract 49.
                 if (e.ctrlKey) {
-                    if (removeTabOfChild (list, e.keyCode - 49)) {
-                        resetTabList();
-                    }
+                    removeTabOfChild (list, e.keyCode - 49);
                     break;
                 }
-                if (replaceWindowOfChild (list, e.keyCode - 49)) {
-                    resetTabList();
-                }
+                replaceWindowOfChild (list, e.keyCode - 49);
                 break;
             }
         }
@@ -77,6 +73,13 @@ function setKeybindings () {
             break;
         }
 
+    });
+
+    document.getElementById("searchInput").addEventListener('keydown', function (e){
+        switch (e.keyCode) {
+        case 13:
+            replaceWindowOfChild (list, 0);
+        }
     });
 
 }

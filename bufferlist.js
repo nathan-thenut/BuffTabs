@@ -23,8 +23,6 @@ function fillTabList(search) {
             active: true
         });
 
-        resetTabList();
-
     }
 
     // Get the current position in pagination
@@ -55,7 +53,13 @@ function fillTabList(search) {
         let tabsList = document.getElementById('list');
         let currentTabs = document.createDocumentFragment();
 
-        var regex = new RegExp(search);
+        var caseInsensitive = document.getElementById("caseInsensitive").checked;
+
+        var regex;
+        if (caseInsensitive) {
+            regex = new RegExp(search.toLowerCase());
+        }
+        else regex = new RegExp(search);
 
         tabsList.textContent = '';
 
@@ -76,7 +80,12 @@ function fillTabList(search) {
             if (tab.active) continue;
 
             // If the title doesn't match the regex, continue
-            if (regex.exec(tab.title) == null) continue;
+            // Check if case sensitivity is to be applied or not
+
+            if (caseInsensitive) {
+                if (regex.exec(tab.title.toLowerCase()) == null) continue;
+            } 
+            else if (regex.exec(tab.title) == null) continue;
 
             // Create elements and bind them to buffer list
             let item = document.createElement('li');
@@ -118,6 +127,18 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("searchInput").addEventListener('keydown', function (e){
         emptyElement("searchInput");
         fillTabList(document.getElementById("searchInput").value);
+    });
+
+    // Change the icon back to inactive when closing the BuffTab
+    window.addEventListener("beforeunload", function (event) {
+        browser.browserAction.setIcon({path: "icons/BuffTabs.svg"});
+    });
+
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState == "visible") {
+            resetTabList();
+            document.getElementById("searchInput");
+        }
     });
 
 });

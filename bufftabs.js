@@ -4,7 +4,7 @@ function openBuffList() {
 
     // Set icon to active one
     browser.browserAction.setIcon({path: "icons/BuffTabs-active.svg"});
-    
+
     // should we open it as a pinned tab?
     var pinnedGetting = browser.storage.local.get("pinned");
     pinnedGetting.then(function (item) {
@@ -51,7 +51,6 @@ function runBuffTabs () {
             for (let tab of tabs) {
                 if(tab.active) {
                     console.log("Removing tab with tablist");
-                    browser.browserAction.setIcon({path: "icons/BuffTabs.svg"});
                     browser.tabs.remove(tab.id);
                     active = true;
                     break;

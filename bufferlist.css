@@ -46,10 +46,6 @@ ul > li > a:hover {
     background: rgba(0,0,0,0.3);
 }
 
-.visible {
-    display: initial !important;
-}
-
 /* ----------
 |  Main Structure Elements
 |- ---------*/
@@ -89,8 +85,19 @@ ul > li > a:hover {
     left: 0px;
 }
 
+#help.visible {
+    display: block;
+}
+
 #settings {
     right: 0px;
+    height: 400px;
+    padding-bottom: calc(100vh - 1em - 400px);
+}
+
+#settings.visible {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 /* ----------
@@ -169,14 +176,19 @@ h1 {
 
 .sidebar input[type="checkbox"] {
     display: inline-block;
+    grid-row: auto;
+    grid-column: 1 / span 1;
     margin: 0.2em 0.5em 0.2em 0px;
     vertical-align: middle;
 }
 
 .sidebar input[type="checkbox"] ~ label {
     display: inline-block;
-    width:   calc(100% - 5em);
+    grid-row: auto;
+    grid-column: 2 / span 1;
+    width:   calc(100% - 3em);
     vertical-align: middle;
+    text-align: left;
 }
 
 .sidebar button:hover {
