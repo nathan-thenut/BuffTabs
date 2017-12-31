@@ -42,8 +42,7 @@ function fillTabList(search) {
             item.id = "tabsInfo";
             item.textContent = from.toString() + " - " + to.toString() + " / " + max.toString();
             document.getElementsByTagName("div")[0].appendChild(item);
-        }
-        else {
+        } else {
             document.getElementById("tabsInfo").textContent = from.toString() + " - " + to.toString() + " / " + max.toString();
         }
 
@@ -58,8 +57,9 @@ function fillTabList(search) {
         var regex;
         if (caseInsensitive) {
             regex = new RegExp(search.toLowerCase());
+        } else {
+            regex = new RegExp(search);
         }
-        else regex = new RegExp(search);
 
         tabsList.textContent = '';
 
@@ -84,9 +84,9 @@ function fillTabList(search) {
 
             if (caseInsensitive) {
                 if (regex.exec(tab.title.toLowerCase()) == null) continue;
-            } 
-            else if (regex.exec(tab.title) == null) continue;
-
+            } else if (regex.exec(tab.title) == null) { 
+                continue;
+            }
             // Create elements and bind them to buffer list
             let item = document.createElement('li');
             let tabLink = document.createElement('a');
